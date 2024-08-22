@@ -60,7 +60,7 @@
         <h1>MBTI診断結果</h1>
         <p class="result" id="result"></p>
         <p>結果をツイートする:</p>
-        <a id="tweet-button" class="tweet-button" href="#" target="_blank">ツイート</a>
+        <a id="tweet-button" class="tweet-button" href="#" target="_blank">ツイートする</a>
         
         <script>
             // URLパラメータから結果を取得
@@ -91,7 +91,7 @@
             document.getElementById('result').textContent = `${result}: ${resultDisplay}`;
 
             // ツイートするリンクを設定
-            const tweetText = encodeURIComponent(`私のMBTI診断結果は ${result} - ${resultDisplay} です。`);
+            const tweetText = encodeURIComponent(`私のMBTI診断結果は ${result} - ${resultDisplay} です。\nMBTI診断をする→https://valleyorigin.github.io/mbti/`);
             const tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}`;
             document.getElementById('tweet-button').href = tweetUrl;
         </script>
