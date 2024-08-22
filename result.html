@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>診断結果</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #0073e6;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        button {
+            background-color: #0073e6;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>診断結果</h1>
+        <p id="result-text"></p>
+        <button onclick="window.history.back();">戻る</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const result = urlParams.get('result');
+
+        const descriptions = {
+            'ESTP': '発起人（Promoter）',
+            'ISTP': '工芸家（Crafter）',
+            'ESFP': '演者（Performer）',
+            'ISFP': '作曲家（Composer）',
+            'ESTJ': '監督者（Supervisor）',
+            'ISTJ': '調査官（Inspector）',
+            'ESFJ': '供給者（Provider）',
+            'ISFJ': '保護者（Protector）',
+            'ENFJ': '教師（Teacher）',
+            'INFJ': '助言者（Counselor）',
+            'ENFP': '優勝者（Champion）',
+            'INFP': '治療者（Healer）',
+            'ENTJ': '陸軍元帥（Fieldmarshal）',
+            'INTP': '立案者（Mastermind）',
+            'ENTP': '発明家（Inventor）',
+            'INTJ': '建築家（Architect）'
+        };
+
+        document.getElementById('result-text').innerText = `あなたの性格タイプは: ${result} - ${descriptions[result]}`;
+    </script>
+</body>
+</html>
